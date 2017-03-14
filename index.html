@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html ng-app="zombieSocial">
   <head>
-    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
-    <script type="text/javascript" src="angular.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <script type="text/javascript" src="app.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/angular-route.js"></script>
+
   </head>
   <body ng-controller="SurvivorsController as survivors">
+
     <header class="page-header">
       <div class="container">
      <h1 class="text-center">ZombieSocial</h1>
@@ -14,20 +18,22 @@
    </div>
  </header>
 
- <div class="container-fluid" ng-controller="TabController as tab">
+
+ <div class="container-fluid">
  <ul class="nav nav-pills nav-justified">
    <a class="navbar-brand" href="">ZombieSocial</a>
-    <li ng-class="{ active:tab.isSet(1) }">
-      <a href="" ng-click="tab.setTab(1)">Home</a></li>
-    <li ng-class="{ active:tab.isSet(2) }">
-      <a href="" ng-click="tab.setTab(2)">New Survivor</a></li>
-    <li ng-class="{ active:tab.isSet(3) }">
-      <a href="" ng-click="tab.setTab(3)">Login</a></li>
-    <li ng-class="{ active:tab.isSet(4) }">
-      <a href="" ng-click="tab.setTab(4)">Stats</a></li>
+    <li class="active">
+      <a href="/">Home</a></li>
+    <li >
+      <a href="/new">New Survivor</a></li>
+    <li >
+      <a href="/login">Login</a></li>
+    <li>
+      <a href="/stats" >Stats</a></li>
   </ul>
 
     <div ng-show="tab.isSet(1)" class="panel-group container">
+      <div ng-view></div>
    <div class="panel panel-default">
      <div class="panel-heading text-center">Welcome to ZombieSocial!</div>
      <div class="panel-body">The world as we know it has fallen into an apocalyptic scenario. <br><br>A laboratory-made virus is transforming human beings and animals into zombies, hungry for fresh flesh.
@@ -36,7 +42,7 @@
    </div>
 </div>
 
-<div ng-show="!tab.isSet(1)" class="form">
+<!--<div ng-show="!tab.isSet(2)" class="form">
 
   <form name="newForm" ng-controller="ReviewController as reviewCtlr" ng-submit="reviewForm.$valid && reviewCtlr.addReview(product)" novalidate>
   <h4>Submit a Review</h4>
@@ -59,7 +65,7 @@
 </div>
 
 
-</div>
+</div>-->
    <footer class="footer">
          <div class="container">
            <p class="text-muted">ZombieSocial.</br>Vinicius Carvalho Machado, 2017.</p>

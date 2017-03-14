@@ -1,7 +1,30 @@
 (function() {
-  var app = angular.module('zombieSocial', []);
+var app = angular.module('zombieSocial', ['ngRoute']);
+app.config(function($routeProvider,$locationProvider) {
+  $locationProvider.html5Mode({
+              enabled: true,
+              requireBase: false
+          });
+  $routeProvider
+  .when("/", {
+      templateUrl : "index.html"
+  })
+  .when("/new", {
+      templateUrl : "templates/newSurvivor.html",
+  })
+  .when("/login", {
+      templateUrl : "templates/login.html"
 
-  app.controller('SurvivorsController', function(){
+  })
+  .when("/stats", {
+      templateUrl : "templates/stats.html"
+  }).otherwise({
+          redirectTo : '/'
+        });
+
+});
+
+  /*app.controller('SurvivorsController', function(){
     this.people = survivors;
   });
 
@@ -17,7 +40,7 @@
      };
    });
 
-
+*/
    var survivors =[{
      name:'Vini',
      age: 24,
@@ -37,5 +60,5 @@
      medication: 123,
      ammunation:12
    }];
-   
+
 })();
