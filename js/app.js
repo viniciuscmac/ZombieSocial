@@ -1,16 +1,18 @@
 (function() {
 var app = angular.module('zombieSocial', ['ngRoute']);
+
 app.config(function($routeProvider,$locationProvider) {
   $locationProvider.html5Mode({
               enabled: true,
               requireBase: false
-          });
+              });
   $routeProvider
   .when("/", {
       templateUrl : "templates/home.html"
   })
   .when("/new", {
       templateUrl : "templates/newSurvivor.html",
+      controller : "FormController as formCtrl"
   })
   .when("/login", {
       templateUrl : "templates/login.html"
@@ -37,23 +39,6 @@ app.controller('FormController', function(){
     }
   });
 
-  /*app.controller('SurvivorsController', function(){
-    this.people = survivors;
-  });
-
-  app.controller('TabController', function(){
-     this.tab = 1;
-
-     this.setTab = function(newValue){
-       this.tab = newValue;
-     };
-
-     this.isSet = function(tabName){
-       return this.tab === tabName;
-     };
-   });
-
-*/
 var survivors =[{
      name:'Vini',
      age: 24,

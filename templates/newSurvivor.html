@@ -1,11 +1,13 @@
 <div class="container">
-  <div ng-view></div>
-  <form name="newSurvivor" ng-controller="FormController as formCtlr" ng-submit="formCtlr.addUser()"novalidate>
+  <div class="list-group-item" ng-repeat="person in surv.people">
+  <h3>{{person.name}}</h3></div>
+  <form name="newSurvivor" ng-submit="formCtlr.addUser()"novalidate>
     <h4>Tell us about you:</h4>
     <fieldset class="form-group">
       <textarea ng-model="formCtlr.surv.people.name" class="form-control" placeholder="Write your name..." title="Name" required></textarea>
     </fieldset>
     <fieldset class="form-group">
+      <h4>{{formCtlr.surv.people.name}}</h4>
       <input ng-model="formCtlr.surv.people.age" type="number" class="form-control" placeholder="What's your age ?" title="Age" required/>
     </fieldset>
     <fieldset class="form-group">
@@ -29,7 +31,7 @@
       <input ng-model="formCtlr.surv.people.ammunation" type="number" min="0" max="999" class="form-control" placeholder="Ammunation" title="Age" required/>
     </fieldset>
     <fieldset class="form-group">
-
+      <div> form is {{newSurvivor.$valid}}</div>
       <input type="submit" class="btn btn-primary pull-right" value="Create Account" onclick="subForm()"/>
     </fieldset>
     <script>
