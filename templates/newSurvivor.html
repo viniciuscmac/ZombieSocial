@@ -1,1 +1,41 @@
-    <h2>TESTE</h2>
+<div class="container">
+  <div ng-view></div>
+  <form name="newSurvivor" ng-controller="FormController as formCtlr" ng-submit="formCtlr.addUser()"novalidate>
+    <h4>Tell us about you:</h4>
+    <fieldset class="form-group">
+      <textarea ng-model="formCtlr.surv.people.name" class="form-control" placeholder="Write your name..." title="Name" required></textarea>
+    </fieldset>
+    <fieldset class="form-group">
+      <input ng-model="formCtlr.surv.people.age" type="number" class="form-control" placeholder="What's your age ?" title="Age" required/>
+    </fieldset>
+    <fieldset class="form-group">
+      <select ng-model="formCtlr.surv.people.gender" class="form-control" title="Gender" required>
+        <option value="" disabled selected>Select your gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+    </fieldset>
+    <h4>Inventory</h4>
+    <fieldset class="form-group">
+      <input ng-model="formCtlr.surv.people.water" type="number" min="0" max="999" class="form-control" placeholder="Water" title="Age" required/>
+    </fieldset>
+    <fieldset class="form-group">
+      <input ng-model="formCtlr.surv.people.food" type="number" min="0" max="999" class="form-control" placeholder="Food" title="Age" required/>
+    </fieldset>
+    <fieldset class="form-group">
+      <input ng-model="formCtlr.surv.people.medication" type="number" min="0" max="999" class="form-control" placeholder="Medication" title="Age" required/>
+    </fieldset>
+    <fieldset class="form-group">
+      <input ng-model="formCtlr.surv.people.ammunation" type="number" min="0" max="999" class="form-control" placeholder="Ammunation" title="Age" required/>
+    </fieldset>
+    <fieldset class="form-group">
+
+      <input type="submit" class="btn btn-primary pull-right" value="Create Account" onclick="subForm()"/>
+    </fieldset>
+    <script>
+        function subForm() {
+        document.newSurvivor.reset();
+        }
+    </script>
+</form>
+</div>

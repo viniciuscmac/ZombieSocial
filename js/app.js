@@ -7,7 +7,7 @@ app.config(function($routeProvider,$locationProvider) {
           });
   $routeProvider
   .when("/", {
-      templateUrl : "index.html"
+      templateUrl : "templates/home.html"
   })
   .when("/new", {
       templateUrl : "templates/newSurvivor.html",
@@ -23,6 +23,19 @@ app.config(function($routeProvider,$locationProvider) {
         });
 
 });
+
+app.controller('SurvivorsController', function(){
+    this.people = survivors;
+  });
+
+app.controller('FormController', function(){
+    this.forms = {};
+
+    this.addUser = function() {
+      this.forms = {}
+
+    }
+  });
 
   /*app.controller('SurvivorsController', function(){
     this.people = survivors;
@@ -41,7 +54,7 @@ app.config(function($routeProvider,$locationProvider) {
    });
 
 */
-   var survivors =[{
+var survivors =[{
      name:'Vini',
      age: 24,
      gender:'Male',
@@ -49,7 +62,8 @@ app.config(function($routeProvider,$locationProvider) {
      water: 1,
      food: 5,
      medication: 12,
-     ammunation: 24
+     ammunation: 24,
+     infected: true
    },{
      name:'HAHAHA',
      age: 123,
@@ -58,7 +72,8 @@ app.config(function($routeProvider,$locationProvider) {
      water: 123,
      food: 123,
      medication: 123,
-     ammunation:12
+     ammunation:12,
+     infected: false
    }];
 
 })();
