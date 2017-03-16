@@ -14,7 +14,7 @@
       templateUrl : "templates/newSurvivor.html"
   })
   .when("/login", {
-      templateUrl : "templates/login.html"
+      templateUrl : "templates/search.html"
 
   })
   .when("/stats", {

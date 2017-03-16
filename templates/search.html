@@ -1,0 +1,8 @@
+<div class="container" ng-controller="SearchController as search">
+    <form name="Search" ng-submit="search.getData()" novalidate >
+      <input type="text" ng-model="search.id" class="form-control" placeholder="Survivor ID Here..."/>
+      <input type="submit" class="btn btn-primary pull-right" value="Search"/>
+      <div class="container" ng-show="search.valid"><h4><br>Name: {{search.data.name}}<br><br>Age: {{search.data.age}}<br><br>Gender: {{search.data.gender}}<br><br>Location: {{search.data.lonlat}}<br><br>Created On: {{search.data.created_at}}<h4></div>
+    </form>
+
+</div>

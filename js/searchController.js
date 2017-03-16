@@ -4,10 +4,14 @@
   SearchController.$inject = ['Survivor'];
 
   function SearchController(Survivor) {
-  	var vm = this;
-    var string = "c496900e-8a2b-4fdb-b0be-4a1f90ac39e9";
-    vm.person = Survivor.query({id:string});
 
-    console.log(vm.person);
-  }
+  	var vm = this;
+    vm.valid = false;
+    vm.getData = getData;
+
+   function getData(){
+     vm.data = Survivor.get({ id: vm.id });
+     vm.valid = true;
+   }
+ }
 })();

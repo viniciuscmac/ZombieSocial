@@ -1,5 +1,8 @@
 <div class="container" ng-controller="StatsController as stats">
-  <div class="list-group" ng-repeat="survivors in stats.people">
-  <h3>  {{survivors.$promise.value}} </h3>
+  <div class="list-group" id="teste">
+  <li class="list-group-item">People on the network: {{stats.total}}<br></li>
+  <li class="list-group-item">Male: {{stats.genderM}}<br></li>
+  <li class="list-group-item">Female: {{stats.genderF}}<br></li>
+  <li class="list-group-item">Infected: {{stats.infected}} -> {{stats.percentageNotInfected | number:2}}% of total</li>
   </div>
 </div>
