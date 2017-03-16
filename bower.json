@@ -1,0 +1,24 @@
+{
+  "name": "ZombieSocial",
+  "homepage": "https://github.com/viniciuscmac/ZombieSocial",
+  "authors": [
+    "viniciuscmac <viniciuscmac@gmail.com>"
+  ],
+  "description": "Zombie Survival Social Network",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.3",
+    "angular-route": "^1.6.3",
+    "angular-resource": "^1.6.3",
+    "bootstrap": "^3.3.7"
+  }
+}

@@ -1,1 +1,5 @@
-<h3>Stats Page</h3>
+<div class="container" ng-controller="StatsController as stats">
+  <div class="list-group" ng-repeat="survivors in stats.people">
+  <h3>  {{survivors.$promise.value}} </h3>
+  </div>
+</div>

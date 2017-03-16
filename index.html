@@ -2,13 +2,10 @@
 <html ng-app="zombieSocial">
   <head>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-    <script type="text/javascript" src="js/angular.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script type="text/javascript" src="js/app.js"></script>
-    <script type="text/javascript" src="js/angular-route.js"></script>
-    <script type="text/javascript" src="js/routes.js"></script>
+
   </head>
-  <body ng-controller="SurvivorsController as survivors">
+  <body >
 
     <header class="page-header">
       <div class="container">
@@ -18,24 +15,36 @@
     </header>
 
 
- <div class="container-fluid">
- <ul class="nav nav-pills nav-justified">
+ <div class="container-fluid" ng-controller="TabController as tab">
+ <ul class="nav nav-pills nav-justified" >
    <a class="navbar-brand" href="">ZombieSocial</a>
-    <li class="active">
-      <a href="/">Home</a></li>
-    <li >
-      <a href="/new">New Survivor</a></li>
-    <li >
-      <a href="/login">Login</a></li>
-    <li>
-      <a href="/stats" >Stats</a></li>
+    <li ng-class="{ active:tab.isSet(1) }">
+      <a href="/" ng-click="tab.setTab(1)">Home</a></li>
+    <li ng-class="{ active:tab.isSet(2) }">
+      <a href="/new" ng-click="tab.setTab(2)">New Survivor</a></li>
+    <li ng-class="{ active:tab.isSet(3) }">
+      <a href="/login" ng-click="tab.setTab(3)">Login</a></li>
+    <li ng-class="{ active:tab.isSet(4) }">
+      <a href="/stats" ng-click="tab.setTab(4)">Stats</a></li>
   </ul></div>
       <div ng-view></div>
+      <div ng-show="tab.isSet(2)" style="height:200px; width:500px; position:absolute;" id="map"></div>
+
 
    <footer class="footer">
          <div class="container">
            <p class="text-muted">ZombieSocial.</br>Vinicius Carvalho Machado, 2017.</p>
          </div>
-       </footer>
+   </footer>
+       <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+       <script type="text/javascript" src="js/app.js"></script>
+       <script type="text/javascript" src="js/routes.js"></script>
+       <script type="text/javascript" src="js/resource.js"></script>
+       <script type="text/javascript" src="js/TabController.js"></script>
+       <script type="text/javascript" src="js/formController.js"></script>
+       <script type="text/javascript" src="js/statsController.js"></script>
+       <script type="text/javascript" src="js/searchController.js"></script>
   </body>
 </html>

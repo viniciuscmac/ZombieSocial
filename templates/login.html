@@ -1,1 +1,5 @@
-<h3>Login page</h3>
+<div class="container" ng-controller="SearchController as search">
+  <div class="list-group" ng-repeat="data in search.person">
+  <h3>  {{data.name}} </h3>
+  </div>
+</div>
